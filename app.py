@@ -82,8 +82,11 @@ def index():
 
         # ourtranslation = change(text=mymessage,srcLang=sourceLanguage,destlang=destinationlanguage)
         # translatesample = ourtranslation
-        trans = Translator()
-        trans1 = trans.translate(mymessage,destinationlanguage1,sourceLanguage1)
+        try:
+            trans = Translator()
+            trans1 = trans.translate(mymessage,destinationlanguage1,sourceLanguage1)
+        except:
+            return f"<h1> You did not input all requirements. Go Back <h1/>"
         jatt = trans1.text
         leftlangss = lang
         leftlangss.remove(sourceLanguage1)

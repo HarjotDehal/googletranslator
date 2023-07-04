@@ -5,7 +5,7 @@
 
 
 {% block head %}
-<title>Speed Test</title>
+<title>Translator</title>
 
 <style>
     @keyframes buttonAnimation {
@@ -30,6 +30,7 @@
 <h1 style="text-align: center; font-size: 80px; margin-bottom: 10px; "> Google Translate</h1>
 
 <h6 class="subtitle" >Using Python</h6>
+<!-- <img src="images/switch.png" alt="h" /> -->
 
 <!-- need 2 main text boxes with words -->
 
@@ -80,6 +81,13 @@
 
 <input type="submit" class="speedbutt" value="Run" style=" cursor: pointer;">
 
+<button class="speedbutt2" onclick="switchthem(event)">
+
+     Switch
+
+</button>
+<!-- <img src="images/switch.png" alt="h" /> -->
+
 </div>
 
 
@@ -122,16 +130,40 @@
 
 <script>
 
-function getBothOptionsAtOnce() {
-        selectElement = document.querySelector('#select1');
+// function switchthem() {
+//     var leftLanguageBox = document.querySelector('#leftlangs');
+//     var rightLanguageBox = document.querySelector('#rightlangs');
+//     var leftTextArea = document.querySelector('[name="tobetranslated"]');
+//     var rightTextArea = document.querySelector('[name="maketranslated"]');
 
-        output = selectElement.value;
-        
-        
-        document.querySelector('.output').textContent = output;
+//     var leftLanguageValue = leftLanguageBox.value;
+//     var rightLanguageValue = rightLanguageBox.value;
+//     var leftTextValue = leftTextArea.value;
+//     var rightTextValue = rightTextArea.value;
+
+//     leftLanguageBox.value = rightLanguageValue;
+//     rightLanguageBox.value = leftLanguageValue;
+//     leftTextArea.value = rightTextValue;
+//     rightTextArea.value = leftTextValue;
+// }
+
+function switchthem(event) {
+    event.preventDefault();
+    var leftLanguageBox = document.querySelector('#leftlangs');
+    var rightLanguageBox = document.querySelector('#rightlangs');
+    var leftTextArea = document.querySelector('[name="tobetranslated"]');
+    var rightTextArea = document.querySelector('[name="maketranslated"]');
+
+    var leftLanguageValue = leftLanguageBox.value;
+    var rightLanguageValue = rightLanguageBox.value;
+    var leftTextValue = leftTextArea.value;
+    var rightTextValue = rightTextArea.value;
+
+    leftLanguageBox.value = rightLanguageValue;
+    rightLanguageBox.value = leftLanguageValue;
+    leftTextArea.value = rightTextValue;
+    rightTextArea.value = leftTextValue;
     }
-
-
 </script>
 
 {% endblock %}
