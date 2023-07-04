@@ -1,0 +1,137 @@
+
+
+
+{% extends 'base.html' %}
+
+
+{% block head %}
+<title>Speed Test</title>
+
+<style>
+    @keyframes buttonAnimation {
+      0% { transform: scale(1); }
+      50% { transform: scale(1.1); }
+      100% { transform: scale(1); }
+    }
+    @keyframes circleAnimation {
+    0% { transform: rotate(0deg) translateX(20px) rotate(0deg); }
+    100% { transform: rotate(360deg) translateX(20px) rotate(-360deg); }
+  }
+
+
+  </style>
+{% endblock %}
+
+{% block body %}
+
+
+<div class="content">
+
+<h1 style="text-align: center; font-size: 80px; margin-bottom: 10px; "> Google Translate</h1>
+
+<h6 class="subtitle" >Using Python</h6>
+
+<!-- need 2 main text boxes with words -->
+
+<!-- then 3 selectors -->
+
+<!-- 1 selector picks left language, 1 picks right and third is enter button -->
+
+<form action="/" method="POST">
+<div class="maingroup">
+
+
+
+<div style="padding-right: 10px;">
+
+<!-- has our left textbox with the language picker underneath<div> -->
+
+    <!-- <input type="text" name="" id=""> -->
+    <!-- <p>Enter Text</p> -->
+
+    <h4> Your Text</h4>
+    <textarea rows="15" cols="30" style="font-size: 22px;"  name="tobetranslated" >
+        {{totranslate}}
+    </textarea>
+
+    <!-- gonna have to create a for loop here where
+         we loop over our languages and make a language for each -->
+
+         <!-- take an input from python similar to flask tutorial -->
+         <!-- use as reference -->
+
+         <select class="boxes" name="leftlanguages" id="leftlangs">
+            {% for leftlang in leftlangs %}
+
+        
+
+            <option > {{leftlang}}</option>
+
+            {% endfor%}
+    </select>
+
+</div>
+
+
+<div>
+
+<!-- has our run button -->
+<!-- <button class="speedbutt"> <a href="/" style="color:white; text-decoration: none;">Run</a> </button> -->
+
+<input type="submit" class="speedbutt" value="Run" style=" cursor: pointer;">
+
+</div>
+
+
+<div style="padding-left: 20px;">
+
+<!-- has our right textbox with picker underneatrh -->
+
+<h4> Translated Text</h4>
+
+<textarea rows="15" cols="30" style="font-size: 22px;" name="maketranslated">
+    {{translated}}
+</textarea>
+
+<select  class="boxes" name="languagesright"  id="rightlangs">
+
+    <!-- <option value="english">English</option>
+    <option value="hindi">Hindi</option>
+    <option value="punjabi">Punjabi</option>
+    <option value="spanish">Spanish</option> -->
+    {% for leftlang in rightlangs %}
+
+        
+
+    <option > {{leftlang}}</option>
+
+    {% endfor%}
+    <!-- <option> english</option> -->
+
+</select>
+
+</div>
+
+
+
+</div>
+</form>
+
+
+</div>
+
+<script>
+
+function getBothOptionsAtOnce() {
+        selectElement = document.querySelector('#select1');
+
+        output = selectElement.value;
+        
+        
+        document.querySelector('.output').textContent = output;
+    }
+
+
+</script>
+
+{% endblock %}
